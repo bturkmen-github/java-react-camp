@@ -9,13 +9,14 @@ import bturkmen.northwind.entities.concretes.Product;
 
 public interface ProductDao extends JpaRepository<Product, Integer>{
 	Product getByProductName(String productName);
-	Product getByProductNameAndCategoryId(String productName,int categoryId);
-	List<Product> getByProductNameOrCategoryId(String productName,int categoryId);
+	Product getByProductNameAndCategory(String productName,int categoryId);
+	List<Product> getByProductNameOrCategory(String productName,int categoryId);
 	List<Product> getByCategoryIdIn(List<Integer> categories);
 	List<Product> getByProductNameContains(String productName);
-	List<Product> getByProductNameStartWith(String productName);
+	List<Product> getByProductNameStartingWith(String productName);
 
-	@Query("From Product where productName=:productName and categoryId=:cotegoryId")
+	@Query("From Product where productName=:productName and category.id=:categoryId")
 	List<Product> getByNameAndCategory(String productName,int categoryId);
+	
 	
 }
