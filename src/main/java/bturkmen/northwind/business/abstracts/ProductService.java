@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import bturkmen.northwind.core.utilities.results.DataResult;
 import bturkmen.northwind.core.utilities.results.Result;
 import bturkmen.northwind.entities.concretes.Product;
+import bturkmen.northwind.entities.dtos.ProductWithCategoryDto;
 
 public interface ProductService {
 	DataResult<List<Product>> getAll();
@@ -22,5 +23,5 @@ public interface ProductService {
 	DataResult<List<Product>> getByProductNameContains(String productName);
 	DataResult<List<Product>> getByProductNameStartWith(String productName);
 	DataResult<List<Product>> getByNameAndCategory(String productName,int categoryId);
-	
+	DataResult<List<ProductWithCategoryDto>> getProductWithCategoryDetails();
 }

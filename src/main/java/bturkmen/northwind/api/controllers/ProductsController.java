@@ -15,6 +15,7 @@ import bturkmen.northwind.business.abstracts.ProductService;
 import bturkmen.northwind.core.utilities.results.DataResult;
 import bturkmen.northwind.core.utilities.results.Result;
 import bturkmen.northwind.entities.concretes.Product;
+import bturkmen.northwind.entities.dtos.ProductWithCategoryDto;
 
 @RestController
 @RequestMapping("/api/products")
@@ -88,5 +89,10 @@ public class ProductsController {
 	}
 	*/
 	
+	
+	@GetMapping("/getProductWithCategoryDetails")
+	public DataResult<List<ProductWithCategoryDto>> getProductWithCategoryDetails(){		
+		return this.productService.getProductWithCategoryDetails();		
+	}
 	
 }
